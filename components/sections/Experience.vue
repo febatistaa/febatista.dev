@@ -1,30 +1,26 @@
 <template>
-  <ul class="experience">
-    <li v-for="(item, index) in items">
-      <div>
-        <h3 class="">
-          {{ item.company }}
-        </h3>
-        <p class="">
-          {{ item.role }}
-        </p>
-      </div>
-      <p class="period mobile">
-        {{ item.startedAt }} - {{ item.finishedAt || "Present" }}
-      </p>
-      <p class="period desktop">
-        {{ item.startedAt }} - {{ item.finishedAt || "Present" }}
-      </p>
-    </li>
-  </ul>
+  <Section title="Experience" id="experience">
+    <ul class="experience">
+      <li v-for="item in experiences">
+        <div>
+          <h3 class="">
+            {{ item.company }}
+          </h3>
+          <p class="">
+            {{ item.role }}
+          </p>
+        </div>
+        <p class="period mobile">{{ item.startedAt }} - {{ item.leavedAt }}</p>
+        <p class="period desktop">{{ item.startedAt }} - {{ item.leavedAt }}</p>
+      </li>
+    </ul>
+  </Section>
 </template>
 
 <script setup lang="ts">
-import Experience from "types/Experience";
+const { data } = useAsyncData(() => queryContent("/experiences").findOne());
 
-const { items } = defineProps({
-  items: { type: Array<Experience>, required: true },
-});
+const experiences = data.value?.body;
 </script>
 
 <style scoped lang="postcss">

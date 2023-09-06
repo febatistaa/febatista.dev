@@ -1,39 +1,38 @@
 <template>
-  <aside class="social">
+  <aside class="social" v-if="social">
     <ul>
-      <li>
-        <a href="">
+      <li class="animated">
+        <NuxtLink :href="social.email" target="_blank">
           <nuxt-icon name="envelope" />
-        </a>
+        </NuxtLink>
       </li>
-      <li>
-        <a href="">
+      <li class="animated">
+        <NuxtLink :href="social.github" target="_blank">
           <nuxt-icon name="github" />
-        </a>
+        </NuxtLink>
       </li>
-      <li>
-        <a href="">
+      <li class="animated">
+        <NuxtLink :href="social.medium" target="_blank">
           <nuxt-icon name="medium" />
-        </a>
+        </NuxtLink>
       </li>
-      <li>
-        <a href="">
-          <nuxt-icon name="instagram" />
-        </a>
-      </li>
-      <li>
-        <a href="">
+      <li class="animated">
+        <NuxtLink :href="social.linkedin" target="_blank">
           <nuxt-icon name="linkedin" />
-        </a>
+        </NuxtLink>
       </li>
-      <li>
-        <a href="">
+      <li class="animated">
+        <NuxtLink :href="social.whatsapp" target="_blank">
           <nuxt-icon name="whatsapp" />
-        </a>
+        </NuxtLink>
       </li>
     </ul>
   </aside>
 </template>
+
+<script setup lang="ts">
+const { data: social } = useAsyncData(() => queryContent("/social").findOne());
+</script>
 
 <style scoped lang="postcss">
 .social {
@@ -46,7 +45,6 @@
 
   li {
     @apply text-xl text-slate-50;
-    /* @apply animate-fadeup-enter; */
 
     a {
       @apply block transition-all duration-500;

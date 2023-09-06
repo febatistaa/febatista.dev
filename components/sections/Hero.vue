@@ -1,17 +1,23 @@
 <template>
-  <section class="hero">
+  <section class="hero" v-if="heroContent">
     <div>
-      <h1>Hi, my name is <span>Felipe</span>.</h1>
+      <h1 class="animated">Hi, my name is <span>Felipe</span>.</h1>
       <h2>I’m a Software Engineer.</h2>
       <p>
-        I’m a software engineer specializing in building (and occasionally
-        designing) exceptional digital experiences. Currently, I’m focused on
-        building accessible, human-centered products at Upstatement.
+        {{ heroContent.aboutMe }}
       </p>
-      <LinkButton href="/test">Check out my work!</LinkButton>
+      <LinkButton :href="heroContent.cta.url">{{
+        heroContent.cta.text
+      }}</LinkButton>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const { data: heroContent } = useAsyncData(() =>
+  queryContent("/hero").findOne(),
+);
+</script>
 
 <style scoped lang="postcss">
 .hero {

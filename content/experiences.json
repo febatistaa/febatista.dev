@@ -1,0 +1,44 @@
+[
+  {
+    "company": "Alura Cursos Online",
+    "role": "Intern",
+    "startedAt": "May 2017",
+    "leavedAt": "Jan 2018"
+  },
+  {
+    "company": "Hefesto Software House",
+    "role": "FrontEnd Engineer",
+    "startedAt": "Nov 2017",
+    "leavedAt": "Jul 2018"
+  },
+  {
+    "company": "App DinDin",
+    "role": "FrontEnd Engineer",
+    "startedAt": "Oct 2018",
+    "leavedAt": "Mar 2019"
+  },
+  {
+    "company": "JJC",
+    "role": "Software Engineer",
+    "startedAt": "Mar 2019",
+    "leavedAt": "Jun 2019"
+  },
+  {
+    "company": "Avanade",
+    "role": "Software Engineer",
+    "startedAt": "Jul 2019",
+    "leavedAt": "Nov 2020"
+  },
+  {
+    "company": "SaudeiD",
+    "role": "Senior Software Engineer",
+    "startedAt": "Nov 2020",
+    "leavedAt": "Mar 2022"
+  },
+  {
+    "company": "Grupo Fleury",
+    "role": "Senior Software Engineer",
+    "startedAt": "Mar 2022",
+    "leavedAt": "Present"
+  }
+]

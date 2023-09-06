@@ -1,10 +1,13 @@
 <template>
-  <NuxtLink :href="href" class="link-button"><slot></slot></NuxtLink>
+  <NuxtLink :href="href" :target="target" class="link-button"
+    ><slot></slot
+  ></NuxtLink>
 </template>
 
 <script setup>
-const { href } = defineProps({
+const { href, target } = defineProps({
   href: String,
+  target: String,
 });
 </script>
 

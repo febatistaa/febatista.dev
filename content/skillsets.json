@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Languages",
+    "skills": ["Javascript (ES6)", "Typescript", "HTML", "CSS/Sass", "SQL"]
+  },
+  {
+    "title": "Frameworks",
+    "skills": ["React Native", "React", "Angular", "Vue", "Node"]
+  },
+  {
+    "title": "Tools",
+    "skills": [
+      "Bash",
+      "Git/Github",
+      "Webpack/Vite",
+      "Postman",
+      "MongoDB/Postgres"
+    ]
+  }
+]

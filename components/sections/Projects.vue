@@ -1,27 +1,27 @@
 <template>
-  <ul class="projects">
-    <li v-for="item in items">
-      <h3 class="">
-        <NuxtLink :href="`/projects/${item.slug}`"
-          >{{ item.name }}<nuxt-icon name="arrow-right"
-        /></NuxtLink>
-      </h3>
-      <p class="">
-        {{ item.description }}
-      </p>
-      <div class="tags">
-        <Tag class="" v-for="tag in item.tags">{{ tag }}</Tag>
-      </div>
-    </li>
-  </ul>
+  <Section title="Projects" id="projects">
+    <ul class="projects">
+      <li v-for="item in projects">
+        <h3>
+          <NuxtLink :href="item.url"
+            >{{ item.name }}<nuxt-icon name="arrow-right"
+          /></NuxtLink>
+        </h3>
+        <p class="">
+          {{ item.description }}
+        </p>
+        <div class="tags">
+          <Tag v-for="tag in item.skills">{{ tag }}</Tag>
+        </div>
+      </li>
+    </ul>
+  </Section>
 </template>
 
 <script setup lang="ts">
-import Project from "types/Project";
+const { data } = useAsyncData(() => queryContent("/projects").findOne());
 
-const { items } = defineProps({
-  items: Array<Project>,
-});
+const projects = data.value?.body;
 </script>
 
 <style scoped lang="postcss">

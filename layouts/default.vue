@@ -6,7 +6,6 @@
       <slot />
     </main>
     <Footer />
-    <!-- <Splash /> -->
   </div>
 </template>
 

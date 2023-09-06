@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+@import url("fonts.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,6 +12,7 @@
 html,
 body {
   @apply w-screen overflow-x-hidden;
+  @apply scroll-smooth;
 }
 
 body {
@@ -25,4 +26,13 @@ a {
 
 .nuxt-icon svg {
   margin-bottom: 0 !important;
+}
+
+.animated {
+  @apply translate-y-8 opacity-0;
+  @apply transition-all duration-500 ease-out;
+}
+
+.animated.show {
+  @apply translate-y-0 opacity-100;
 }

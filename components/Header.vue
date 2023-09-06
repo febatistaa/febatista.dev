@@ -1,15 +1,17 @@
 <template>
   <header :class="['header', { minified: hasScrolled }]">
-    <Logo />
+    <div class="animated">
+      <Logo />
+    </div>
     <nav :class="['navigation-container', { open: navOpen }]">
       <ol class="navigation">
-        <li v-for="navItem in navItems">
+        <li v-for="navItem in navItems" class="animated">
           <NuxtLink :href="navItem.path" @click="closeNavOpen">{{
             navItem.title
           }}</NuxtLink>
         </li>
       </ol>
-      <LinkButton href="/resume">Resume</LinkButton>
+      <LinkButton v-if="resume?.show" :href="resume?.url">Resume</LinkButton>
     </nav>
     <button class="menu-button" @click="toggleNavOpen">
       <MenuIcon :open="navOpen" />
@@ -19,6 +21,8 @@
 
 <script setup lang="ts">
 import NavItem from "../types/NavItem";
+
+const { data: resume } = useAsyncData(() => queryContent("/resume").findOne());
 
 const { navItems } = defineProps({
   navItems: { type: Array<NavItem>, required: true },

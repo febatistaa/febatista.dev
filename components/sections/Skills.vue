@@ -1,22 +1,22 @@
 <template>
-  <div class="skills-container">
-    <div v-for="item in items" class="skills">
-      <h3 class="">{{ item.title }}</h3>
-      <ul>
-        <li v-for="skill in item.skills" class="">
-          <nuxt-icon name="caret-right" />{{ skill }}
-        </li>
-      </ul>
+  <Section title="Skills" id="skills">
+    <div class="skills-container">
+      <div v-for="item in skillsets" class="skills">
+        <h3 class="">{{ item.title }}</h3>
+        <ul>
+          <li v-for="skill in item.skills" class="">
+            <nuxt-icon name="caret-right" />{{ skill }}
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </Section>
 </template>
 
 <script setup lang="ts">
-import Skills from "types/Skills";
+const { data } = useAsyncData(() => queryContent("/skillsets").findOne());
 
-const { items } = defineProps({
-  items: { type: Array<Skills>, required: true },
-});
+const skillsets = data.value?.body;
 </script>
 
 <style scoped lang="postcss">

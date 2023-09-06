@@ -1,8 +1,8 @@
 type Project = {
-  slug: string;
   name: string;
   description: string;
-  tags: string[];
+  url: string;
+  skills: string[];
 };
 
 export default Project;

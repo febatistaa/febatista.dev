@@ -10,8 +10,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["nuxt-icons", "@nuxtjs/strapi"],
-  components: [{ path: "~/components", pathPrefix: false }],
+  modules: ["nuxt-icons", "nuxt-lodash", "dayjs-nuxt", "@nuxt/content"],
+  components: [
+    { path: "~/components", pathPrefix: false },
+    { path: "~/components/sections", prefix: "Section" },
+  ],
   nitro: {
     static: true,
   },
